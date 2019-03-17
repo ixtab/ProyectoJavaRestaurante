@@ -1,0 +1,22 @@
+package model;
+
+import java.util.List;
+
+import javax.persistence.*;
+
+public class Prueba {
+
+	public static void main(String[] args) {
+		EntityManagerFactory factoria = Persistence.createEntityManagerFactory("App");
+		EntityManager em = factoria.createEntityManager();
+		TypedQuery<Restaurante> query = em.createNamedQuery("Restaurante.findAll", Restaurante.class);
+
+		List<Restaurante> restaurante = query.getResultList();
+		
+		for (Restaurante r : restaurante) {
+			System.out.println(r.getNombre() + " - " + r.getUsuario() +
+			" - " + r.getPassword() + " - " + r.getMenus());
+		}
+	}
+
+}

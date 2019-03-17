@@ -1,0 +1,71 @@
+package control;
+
+import java.util.List;
+
+import javax.persistence.EntityManager;
+import javax.persistence.EntityManagerFactory;
+import javax.persistence.Persistence;
+import javax.persistence.TypedQuery;
+
+import javax.ws.rs.GET;
+import javax.ws.rs.Path;
+import javax.ws.rs.Produces;
+import javax.ws.rs.QueryParam;
+
+//import com.google.gson.Gson;
+
+import model.Menu;
+import model.Restaurante;
+
+@Path("")
+
+public class WebService {
+	@GET
+	@Produces({"text/json"})
+	public String enviarJSON(@QueryParam("cp") String cp) {
+		
+		EntityManagerFactory factoria = Persistence.createEntityManagerFactory("App");
+		EntityManager em = factoria.createEntityManager();
+		TypedQuery<Restaurante> query = em.createQuery("SELECT r FROM Restaurante r WHERE r.codigopostal = " + cp, Restaurante.class);
+
+		List<Restaurante> restaurante = query.getResultList();
+		 String msg = "{";
+		 
+		
+		if (restaurante.size()>0) {
+			
+			for (Restaurante r : restaurante) {
+				msg += "['id':'"+r.getIdrestaurante()+"'," ;
+				msg += "'cp':'"+r.getCodigopostal()+"'," ;
+				msg += "'comentario':'"+r.getComentariosmenu()+"'," ;
+				msg += "'direccion':'"+r.getDireccion()+"'," ;
+				msg += "'nombre':'"+r.getNombre()+"'," ;	
+				msg += "'precio':'"+r.getPreciomenu()+"'," ;
+				msg += "'web':'"+r.getSitioweb()+"'," ;
+				msg += "'tipo':'"+r.getTipocomida()+"'," ;
+				msg += "'tlf':'"+r.getTlf()+"'," ;
+				
+				/*
+				msg += r.getNombre() + " - " + r.getDireccion() +
+				" - " + r.getCodigopostal() + " - " + r.getPreciomenu();
+				
+				msg += "\nPrimeros: \n";
+				for (Menu m : r.getMenus(r.getIdrestaurante())) {
+					
+					msg += "\t" + m.getPrimero()+"\n";
+				}
+				msg+= "Segundos: \n";
+				for (Menu m : r.getMenus(r.getIdrestaurante())) {
+					
+					msg += "\t" + m.getSegundo() + "\n";
+				}*/
+			}
+		} 
+		else {
+			msg = "No hay restaurantes en ese Código postal";
+		}
+		
+		return msg;
+		
+	}
+}

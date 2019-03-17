@@ -1,0 +1,11 @@
+INDEX VERSION 1.131
+C:\Users\josec\Desktop\00miMenu\.metadata\.plugins\org.eclipse.jst.jsp.core\jspsearch\3460568351.index
+\Api\src
+C:\Users\josec\Desktop\00miMenu\.metadata\.plugins\org.eclipse.jst.jsp.core\jspsearch\859533323.index
+\MiMenu\src
+C:\Users\josec\Desktop\00miMenu\.metadata\.plugins\org.eclipse.jst.jsp.core\jspsearch\129547216.index
+\Webapp\src\main\resources
+C:\Users\josec\Desktop\miMenu\.metadata\.plugins\org.eclipse.jst.jsp.core\jspsearch\3654950641.index
+\MiMenuRESTful\src
+C:\Users\josec\Desktop\00miMenu\.metadata\.plugins\org.eclipse.jst.jsp.core\jspsearch\1677626168.index
+\PruebaMaven\src\main\java

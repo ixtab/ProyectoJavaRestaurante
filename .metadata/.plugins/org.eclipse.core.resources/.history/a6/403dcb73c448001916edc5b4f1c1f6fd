@@ -1,0 +1,20 @@
+onload = inicio;
+
+function inicio(){
+
+}
+
+function buscar(){
+	var codigo = $("#cp").value;
+	$.ajax(
+	{
+		url: 'localhost:8080/Api?cp='+codigo,
+		success: (respuesta)=>{
+			$("#contenedor").html(respuesta);
+		},
+		error: ()=>{
+			$("#contenedor").html("Error al cargar datos");
+		}
+	});	
+	
+}

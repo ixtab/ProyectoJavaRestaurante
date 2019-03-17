@@ -1,0 +1,9 @@
+onload=inicio;
+
+function inicio(){
+}
+
+
+function buscar(){
+	
+}

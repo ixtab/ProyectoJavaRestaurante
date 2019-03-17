@@ -1,0 +1,16 @@
+body {
+	background-color: #fff9c4;
+}
+
+
+.margen-superior {
+	margin-top: 25px;
+}
+
+.margen-inferior {
+	margin-bottom: 25px;
+}
+
+.mapa {
+	display: none;
+}

@@ -1,0 +1,160 @@
+package model;
+
+import java.io.Serializable;
+import javax.persistence.*;
+
+import java.util.ArrayList;
+import java.util.List;
+
+
+/**
+ * The persistent class for the RESTAURANTE database table.
+ * 
+ */
+@Entity
+@NamedQuery(name="Restaurante.findAll", query="SELECT r FROM Restaurante r")
+public class Restaurante implements Serializable {
+	private static final long serialVersionUID = 1L;
+
+	@Id
+	private int idrestaurante;
+
+	private String codigopostal;
+
+	private String comentariosmenu;
+
+	@Lob
+	private String direccion;
+
+	private String nombre;
+
+	private String password;
+
+	private float preciomenu;
+
+	private String sitioweb;
+
+	private String tipocomida;
+
+	private String tlf;
+
+	private String usuario;
+
+	//bi-directional many-to-one association to Menu
+	@OneToMany(mappedBy="restaurante")
+	private ArrayList<Menu> menus;
+
+	public Restaurante() {
+	}
+
+	public int getIdrestaurante() {
+		return this.idrestaurante;
+	}
+
+	public void setIdrestaurante(int idrestaurante) {
+		this.idrestaurante = idrestaurante;
+	}
+
+	public String getCodigopostal() {
+		return this.codigopostal;
+	}
+
+	public void setCodigopostal(String codigopostal) {
+		this.codigopostal = codigopostal;
+	}
+
+	public String getComentariosmenu() {
+		return this.comentariosmenu;
+	}
+
+	public void setComentariosmenu(String comentariosmenu) {
+		this.comentariosmenu = comentariosmenu;
+	}
+
+	public String getDireccion() {
+		return this.direccion;
+	}
+
+	public void setDireccion(String direccion) {
+		this.direccion = direccion;
+	}
+
+	public String getNombre() {
+		return this.nombre;
+	}
+
+	public void setNombre(String nombre) {
+		this.nombre = nombre;
+	}
+
+	public String getPassword() {
+		return this.password;
+	}
+
+	public void setPassword(String password) {
+		this.password = password;
+	}
+
+	public float getPreciomenu() {
+		return this.preciomenu;
+	}
+
+	public void setPreciomenu(float preciomenu) {
+		this.preciomenu = preciomenu;
+	}
+
+	public String getSitioweb() {
+		return this.sitioweb;
+	}
+
+	public void setSitioweb(String sitioweb) {
+		this.sitioweb = sitioweb;
+	}
+
+	public String getTipocomida() {
+		return this.tipocomida;
+	}
+
+	public void setTipocomida(String tipocomida) {
+		this.tipocomida = tipocomida;
+	}
+
+	public String getTlf() {
+		return this.tlf;
+	}
+
+	public void setTlf(String tlf) {
+		this.tlf = tlf;
+	}
+
+	public String getUsuario() {
+		return this.usuario;
+	}
+
+	public void setUsuario(String usuario) {
+		this.usuario = usuario;
+	}
+
+	public List<Menu> getMenus() {
+		return this.menus;
+	}
+
+	public void setMenus(List<Menu> menus) {
+		this.menus = (ArrayList<Menu>) menus;
+	}
+
+	public Menu addMenus(Menu menus) {
+		getMenus().add(menus);
+		menus.setRestaurante(this);
+
+		return menus;
+	}
+
+	public Menu removeMenus(Menu menus) {
+		getMenus().remove(menus);
+		menus.setRestaurante(null);
+
+		return menus;
+	}
+
+}

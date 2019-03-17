@@ -1,0 +1,25 @@
+html {
+    background: url(../img/fondo.jpg) no-repeat center center fixed;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+}
+Y los resultad
+
+body {
+	background-color: #ffebee;
+}
+
+
+.margen-superior {
+	margin-top: 25px;
+}
+
+.margen-inferior {
+	margin-bottom: 25px;
+}
+
+.mapa {
+	display: none;
+}

@@ -1,0 +1,27 @@
+onload = inicio;
+
+function inicio(){
+
+}
+
+function buscar(){
+	var codigo = document.getElementById("cp").value;
+	var xhr = new XMLHttpRequest();
+
+    xhr.onreadystatechange = function () {
+
+        if (xhr.readyState == 4) {
+            if (xhr.status == 200)
+            	document.getElementById("resultado").innerHTML = xhr.responseText;
+            else
+            	document.getElementById("resultado").innerHTML = "Error AJAX";
+        }
+    }
+
+    var url = "localhost:8080/Api?cp="+codigo;
+   
+    
+
+    xhr.open("GET", url);
+    xhr.send();
+}

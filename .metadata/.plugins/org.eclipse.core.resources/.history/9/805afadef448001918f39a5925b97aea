@@ -1,0 +1,10 @@
+onload=inicio;
+
+function inicio(){
+	alert (12);
+}
+
+
+function buscar(){
+	
+}

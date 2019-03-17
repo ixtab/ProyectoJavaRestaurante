@@ -1,0 +1,11 @@
+package model;
+
+import javax.persistence.*;
+
+public class Prueba {
+
+	public static void main(String[] args) {
+		EntityManagerFactory factoria = Persistence.createEntityManagerFactory("JPAProject1");
+	}
+
+}

@@ -1,0 +1,19 @@
+body {
+	background-color: #fff9c4;
+}
+
+a {
+	color: darkblue;
+}
+
+.margen-superior {
+	margin-top: 75px;
+}
+
+.margen-inferior {
+	margin-bottom: 175px;
+}
+
+.padding-izq {
+	padding-left: 15px;
+}

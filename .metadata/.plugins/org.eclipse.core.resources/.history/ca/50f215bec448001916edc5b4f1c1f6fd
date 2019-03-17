@@ -1,0 +1,24 @@
+onload = inicio;
+
+function inicio(){
+
+}
+
+function buscar(){
+	var codigo = document.getElemnetByID("cp").value;
+	var xhr = new XMLHttpRequest();
+
+	xhr.onreadystatechange = function () {
+		alert(xhr.readyState);
+    if (xhr.readyState == 4) {
+        if (xhr.status == 200)
+        	document.getElementById("resultado").innerHTML = xhr.responseText;
+        else
+        	document.getElementById("resultado").innerHTML = "Error AJAX";
+    }
+	}
+
+	alert("1. iniciando peticion Ajax");
+	xhr.open("GET", "localhost:8080/Api?cp=" + codigo);
+	xhr.send();
+}

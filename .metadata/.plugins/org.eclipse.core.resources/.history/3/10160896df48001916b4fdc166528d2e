@@ -1,0 +1,15 @@
+body {
+	background-color: #fff9c4;
+}
+
+a {
+	color: darkblue;
+}
+
+.margen {
+	margin-top: 75px;
+}
+
+.padding {
+	padding: 20px;
+}

@@ -1,0 +1,28 @@
+onload=inicio;
+
+function inicio(){
+}
+
+
+function buscar(){
+    var cp = document.getElementById("cp").value;
+    var xhr = new XMLHttpRequest();
+    var resultado = "";
+    xhr.onreadystatechange = function () {
+    	alert("wsad")
+        if (xhr.readyState == 4) {
+        	
+            if (xhr.status == 200) {
+            	resultado = xhr.responseText;
+            	alert(resultado)
+            }
+            else {
+            	resultado = "No se ha podido leer el archivo JSON";
+            }
+        }
+    }
+    
+    var url = "http://localhost:8080/Api?=" + cp;
+    xhr.open("GET", url);
+    xhr.send();
+}
